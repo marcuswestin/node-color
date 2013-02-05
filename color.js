@@ -32,14 +32,14 @@
 		})
 	}
 	
-	;(function showColorfulExamples() {
-		Object.keys(colors).forEach(function(color) {
-			if (color.match(/^bg/)) { console.log(color[color].black )}
-			else { console.log(color[color]) }
+	module.exports = function showColorfulExamples() {
+		Object.keys(styles).forEach(function(style) {
+			if (style.match(/^bg/)) { console.log(style[style].black )}
+			else { console.log(style[style]) }
 		})
 		console.log('black.bgYellow'.black.bgYellow)
 		console.log('blue.bgGrayLight.underline'.blue.bgGrayLight.underline)
 		console.log('yellowLight.bgPink'.yellowLight.bgPink)
 		console.log('yellowLight.bgPink.inverse'.yellowLight.bgPink.inverse)
-	})()
+	}
 }())

@@ -1,5 +1,9 @@
 'use strict'
 ;(function bringColorToNode(){
+	module.exports = {
+		showColorfulExamples:showColorfulExamples
+	}
+
 	var styles = {
 		white:1, black:30, blue:34, pink:35, cyan:36,
 		
@@ -32,7 +36,7 @@
 		})
 	}
 	
-	module.exports = function showColorfulExamples() {
+	function showColorfulExamples() {
 		Object.keys(styles).forEach(function(style) {
 			if (style.match(/^bg/)) { console.log(style[style].black )}
 			else { console.log(style[style]) }

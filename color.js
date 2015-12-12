@@ -5,23 +5,27 @@
 	}
 
 	var styles = {
-		white:1, black:30, blue:34, pink:35, cyan:36,
+		white:1, black:30, blue:34, magenta:35, cyan:36,
 		
-		red:31, redLight:91,
-		green:32, greenLight:92,
-		yellow:33, yellowLight:93,
-		gray:90, grayLight:37,
+		red:31, lightRed:91,
+		green:32, lightGreen:92,
+		yellow:33, lightYellow:93,
+		gray:90, lightGray:37,
 		
-		bgRed:41, bgRedLight:101,
-		bgGreen:42, bgGreenLight:102,
-		bgYellow:43, bgYellowLight:103,
+		bgRed:41, bgLightRed:101,
+		bgGreen:42, bgLightGreen:102,
+		bgYellow:43, bgLightYellow:103,
 		bgBlue:44, bgLightBlue:104,
-		bgPink:45, bgPinkLight:105,
-		bgCyan:46, bgCyanLight:106,
-		bgGray:100, bgGrayLight:47,
+		bgMagenta:45, bgLightMagenta:105,
+		bgCyan:46, bgLightCyan:106,
+		bgGray:100, bgLightGray:47,
 		bgWhite:107,
 		
-		underline:4, inverse:7
+		underline:4, inverse:7, reset:0
+		
+		// Intentionally left out for poor support and duplicate rendering:
+		// bold (e.g yellow.bold is same as lightYellow)
+		// reset, dim, italic, hidden
 	}
 	
 	for (var name in styles) {
@@ -37,13 +41,15 @@
 	}
 	
 	function showColorfulExamples() {
+		var res = []
 		Object.keys(styles).forEach(function(style) {
-			if (style.match(/^bg/)) { console.log(style[style].black )}
-			else { console.log(style[style]) }
+			if (style.match(/^bg/)) { res.push(style[style].black) }
+			else { res.push(style[style]) }
 		})
-		console.log('black.bgYellow'.black.bgYellow)
-		console.log('blue.bgGrayLight.underline'.blue.bgGrayLight.underline)
-		console.log('yellowLight.bgPink'.yellowLight.bgPink)
-		console.log('yellowLight.bgPink.inverse'.yellowLight.bgPink.inverse)
+		res.push('black.bgYellow'.black.bgYellow)
+		res.push('blue.bgLightGray.underline'.blue.bgLightGray.underline)
+		res.push('lightYellow.bgMagenta'.lightYellow.bgMagenta)
+		res.push('lightYellow.bgMagenta.inverse'.lightYellow.bgMagenta.inverse)
+		console.log('showColorfulExamples:', res.join(', '))
 	}
 }())
